@@ -1,0 +1,196 @@
+/* start of variables */
+:root {
+    --main-color: #19c8fe;
+    --transparent-color: rgb(15 116 143 / 70%);
+}
+/* end of variables */
+
+/* start of global rules ....................................................*/
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+html {
+    scroll-behavior: smooth;
+}
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+ul {
+    list-style: none;
+}
+/* default style for any container */
+.container {
+    padding: 0 15px;
+    margin: 0 auto;
+}
+
+/* start of components will use more than one time */
+
+/* end of components will use more than one time */
+
+/* three media query */
+/* small screen  */
+@media (min-width: 768px) {
+    .container {
+        width: 750px;
+    }
+}
+/* medium screen  */
+@media (min-width: 992px) {
+    .container {
+        width: 970px;
+    }
+}
+/* large screen  */
+@media (min-width: 1200px) {
+    .container {
+        width: 1170px;
+    }
+}
+/* end of global rules ....................................................*/
+
+/* start of header  */
+header {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    z-index: 2;
+}
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 20vh;
+    position: relative;
+}
+header .container::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 15px;
+    background-color: white;
+    height: 1px;
+    width: calc(100% - 30px);
+}
+header .container .logo {
+    width: 120;
+    height: 40px;
+}
+header nav {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+header nav #toggle-menu {
+    font-size: 22px;
+    padding: 15px 0 15px 15px;
+    color: white;
+}
+@media (min-width: 768px) {
+    header nav #toggle-menu {
+        display: none;
+    }
+}
+nav ul {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+@media (max-width: 767px) {
+    header nav ul {
+        display: none;
+    }
+    header .container {
+        height: 12vh;
+    }
+}
+header nav #toggle-menu:hover + ul {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: rgb(0, 0, 0, 50%); 
+}
+header nav #toggle-menu:hover + ul li a {
+    padding: 15px;
+}
+nav ul li a {
+    display: flex;
+    align-items: center;
+    padding: 40px 15px;
+    text-decoration: none;
+    font-size: 14px;
+    color: white;
+}
+nav ul li:hover {
+    border-bottom: 1px solid var(--main-color);
+    z-index: 1;
+    color: var(--main-color);
+}
+nav ul li a:hover {
+    color: var(--main-color);
+    transition: 0.3s;
+}
+nav ul li:first-child {
+    color: var(--main-color);
+    border-bottom: 1px solid var(--main-color);
+    z-index: 1;
+}
+nav ul li:first-child a {
+    color: var(--main-color);
+}
+nav span {
+    padding-left: 15px;
+    margin-left: 15px;
+    border-left: 2px solid white;
+    color: white;
+}
+/* end of header  */
+
+/* start of landing  */
+.landing {
+    background-image: url(../images/landing.jpg);
+    background-size: cover;
+    height: 100vh;
+    position: relative;
+}
+.landing .overlay {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0, 0, 0, 50%);
+}
+.landing .overlay .text {
+    background-color: var(--transparent-color);
+    width: 50%;
+    color: white;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 50px;
+    line-height: 1.6;
+}
+@media (max-width: 992px) {
+    .landing .overlay .text {
+        width: 100%;
+    }
+}
+.landing .overlay .text h2 {
+    font-size: 32px;
+    font-weight: normal;
+    margin-bottom: 20px;
+}
+.landing .overlay .text p {
+    font-size: 14px;
+    line-height: 1.8;
+}
+/* end of landing  */
