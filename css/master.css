@@ -2,6 +2,8 @@
 :root {
     --main-color: #19c8fe;
     --transparent-color: rgb(15 116 143 / 70%);
+    --section-padding-top: 100px;
+    --section-padding-bottom: 100px;
 }
 /* end of variables */
 
@@ -28,10 +30,6 @@ ul {
     margin: 0 auto;
 }
 
-/* start of components will use more than one time */
-
-/* end of components will use more than one time */
-
 /* three media query */
 /* small screen  */
 @media (min-width: 768px) {
@@ -52,6 +50,68 @@ ul {
     }
 }
 /* end of global rules ....................................................*/
+
+/* start of components will use more than one time */
+
+/* start main-heading */
+.main-heading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding-bottom: 100px;
+}
+.main-heading h2 {
+    font-size: 40px;
+    font-weight: normal;
+    text-transform: uppercase;
+    margin-bottom: 70px;
+    position: relative;
+}
+.main-heading h2::before {
+    content: "";
+    position: absolute;
+    width: 120px;
+    height: 2px;
+    background-color: black;
+    left: 50%;
+    top: 150%;
+    transform: translateX(-50%);
+}
+.main-heading h2::after {
+    content: "";
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 50%;
+    left: 50%;
+    top: 150%;
+    transform: translate(-50%, -50%);
+}
+.main-heading p {
+    min-width: 350px;
+    max-width: 550px;
+    padding: 15px;
+    text-align: center;
+    color: #777777;
+    line-height: 1.6;
+}
+/* end main-heading */
+
+/* start of over-lay  */
+.over-lay {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0, 0, 0, 0.5);
+}
+/* end of over-lay  */
+
+/* end of components will use more than one time */
 
 /* start of header  */
 header {
@@ -171,26 +231,297 @@ nav span {
 .landing .overlay .text {
     background-color: var(--transparent-color);
     width: 50%;
+    padding: 51px;
     color: white;
     position: absolute;
     left: 0;
     top: 50%;
     transform: translateY(-50%);
-    padding: 50px;
-    line-height: 1.6;
+    line-height: 1.5;
+}
+.landing .overlay .text .content {
+    display: flex;
+    flex-direction: column;
 }
 @media (max-width: 992px) {
     .landing .overlay .text {
         width: 100%;
     }
 }
-.landing .overlay .text h2 {
+@media (max-width: 768px) {
+    .landing .overlay .text {
+        text-align: center;
+    }
+}
+.landing .overlay .text .content h2 {
     font-size: 32px;
     font-weight: normal;
     margin-bottom: 20px;
 }
-.landing .overlay .text p {
+.landing .overlay .text .content p {
     font-size: 14px;
     line-height: 1.8;
 }
+.landing .arrows {
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 25px;
+    font-size: 25px;
+}
+@media (max-width: 767px) {
+    .landing .arrows {
+        display: none;
+    }
+}
+.landing .bullets {
+    width: 100%;
+    position: absolute;
+    left: 0;
+    bottom: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.landing .bullets li {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 1px solid white;
+    margin: 5px;
+}
+.landing .bullets li:nth-child(2) {
+    background-color: var(--main-color);
+    border: none;
+}
 /* end of landing  */
+
+/* start of services  */
+.services {
+    padding-top: var(--section-padding-top);
+    padding-bottom: var(--section-padding-bottom);
+}
+.services section {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    grid-gap: 50px;
+}
+.services section .serv {
+    display: flex;
+    justify-content: space-between;
+}
+@media (max-width: 768px) {
+    .services section .serv {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+    }
+    .services section .serv i {
+        padding: 25px;
+    }
+}
+.services section .serv i {
+    font-size: 50px;
+}
+.services section .serv .text {
+    padding: 0 30px;
+}
+.services section .serv .text h3 {
+    color: var(--main-color);
+}
+.services section .serv .text p {
+    color: #777777;
+    line-height: 1.8;
+    padding: 15px 0;
+}
+/* end of services  */
+
+/* start of design section  */
+.design {
+    background-image: url(../images/design-features.jpg);
+    height: 100vh;
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+}
+.design img {
+    position: absolute;
+    left: 7%;
+    bottom: -25%;
+}
+@media (max-width: 830px) {
+    .design img {
+        display: none;
+    }
+}
+.design .over-lay {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0, 0, 0, 0.5);
+}
+.design .text {
+    width: 50%;
+    padding: 50px;
+    background-color: var(--transparent-color);
+    color: white;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+@media (max-width: 830px) {
+    .design .text {
+        width: 100%;
+    }
+}
+.design .text h3 {
+    font-size: 24px;
+    font-weight: normal;
+    margin-bottom: 40px;
+}
+.design .text p {
+    padding: 15px 0;
+}
+.design .text p i {
+    margin-right: 15px;
+}
+/* end of design section  */
+
+/* start of portfolio  */
+.portfolio {
+    padding-top: var(--section-padding-top);
+    padding-bottom: var(--section-padding-bottom);
+}
+.portfolio ul {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+.portfolio ul li {
+    padding: 10px;
+}
+.portfolio ul li:first-child {
+    background-color: var(--main-color);
+}
+.portfolio .images {
+    display: flex;
+    flex-wrap: wrap;
+}
+.portfolio .images .box {
+    overflow: hidden;
+    height: 70vh;
+    margin-bottom: 3px;
+    position: relative;
+}
+@media (max-width: 767px) {
+    .portfolio .images .box {
+        flex-basis: 100%;
+    }
+}
+@media (min-width: 768px) {
+    .portfolio .images .box {
+        flex-basis: 50%;
+    }
+}
+@media (min-width: 1199px) {
+    .portfolio .images .box {
+        flex-basis: 25%;
+    }
+}
+.portfolio .images .box img {
+    width: 100%;
+    height: 100%;
+    transition: 0.5s;
+}
+.portfolio .images .box .text {
+    transition: 0.5s;
+    width: 100%;
+    height: 30%;
+    background-color: white;    
+    line-height: 1.6;
+    padding: 20px;
+    position: absolute;
+    top: 100%;
+    left: 0;
+}
+.portfolio .images .text h4 {
+    font-weight: normal;
+}
+.portfolio .images .text p {
+    color: var(--main-color);
+}
+.portfolio .images .box img:hover {
+    transform: scale(1.1) rotate(3deg);
+}
+.portfolio .images .box img:hover + .text {
+    transform: translateY(-100%);
+}
+.portfolio .more {
+    padding: 15px 20px;
+    color: white;
+    background-color: var(--main-color);
+    text-decoration: none;
+    display: block;
+    width: fit-content;
+    margin: 20px auto;
+}
+/* end of portfolio  */
+
+/* start of video section  */
+.video {
+    position: relative;
+}
+.video video {
+    width: 100%;
+}
+.video .text {
+    width: 100%;
+    background-color: var(--transparent-color);
+    color: white;
+    text-align: center;
+    padding: 30px;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+} 
+@media (max-width: 768px) {
+    .video .text {
+        padding: 10px;
+    }
+}
+.video .text h4 {
+    font-size: 20px;
+    font-weight: normal;
+}
+.video .text p {
+    margin: 20px;
+}
+.video .text a {
+    display: inline-block;
+    text-decoration: none;
+    width: fit-content;
+    height: fit-content;
+    padding: 10px 20px;
+    background: black;
+    color: white;
+}
+/* end of video section  */
+
+/* start of about section  */
+.about {
+    padding-top: var(--section-padding-top);
+}
+.about img {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+}
+/* end of about section  */
